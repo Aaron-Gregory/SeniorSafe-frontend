@@ -1,0 +1,55 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync public/ from sources
+        run: |
+          mkdir -p public/uploads
+          cp SeniorSafe.html public/index.html
+          cp *.jsx public/
+          rsync -a uploads/ public/uploads/
+          # Production React (source HTML may still reference development builds)
+          sed -i \
+            -e 's|react.development.js|react.production.min.js|g' \
+            -e 's|react-dom.development.js|react-dom.production.min.js|g' \
+            public/index.html
+          # Drop integrity hashes after rewrite (prod CDN URLs differ)
+          sed -i 's| integrity="[^"]*"||g' public/index.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
