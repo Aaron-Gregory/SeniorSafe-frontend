@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SeniorSafe — Empowering seniors with safety & peace of mind</title>
+<title>Senior Safe — A scam-awareness program for senior living communities</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -510,6 +510,44 @@
   }
   .step h3 { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
   .step p { color: var(--ink-500); }
+  .steps.steps-4 { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 800px) { .steps.steps-4 { grid-template-columns: 1fr; } }
+
+  .hero-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .hero-panel h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+  .callout {
+    max-width: 760px;
+    margin: 28px auto 0;
+    background: #fff;
+    border: 1px solid var(--ink-200);
+    border-left: 4px solid var(--c-primary);
+    border-radius: var(--rad-md);
+    padding: 20px 24px;
+    color: var(--ink-700);
+    text-align: left;
+  }
+  .draft-note {
+    margin-top: 8px;
+    font-size: 13px;
+    color: inherit;
+    opacity: 0.85;
+  }
+  .feature-grid.two {
+    grid-template-columns: 1fr 1fr;
+    max-width: 860px;
+    margin-inline: auto;
+  }
+  @media (max-width: 700px) {
+    .feature-grid.two { grid-template-columns: 1fr; }
+  }
 
   /* Pricing */
   .pricing { background: var(--bg); }

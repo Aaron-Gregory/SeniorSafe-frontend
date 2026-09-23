@@ -1,21 +1,29 @@
-// Section components for SeniorSafe site
+// Section components for the Senior Safe community-program page
 
 const NAV_ITEMS = [
-  { label: 'Home',     id: 'home' },
-  { label: 'Features', id: 'features' },
-  { label: 'How it works', id: 'how' },
-  { label: 'Pricing',  id: 'pricing' },
-  { label: 'About',    id: 'about' },
-  { label: 'Contact',  id: 'contact' },
+  { label: 'Home',          id: 'home' },
+  { label: 'The need',      id: 'problem' },
+  { label: 'Program',       id: 'program' },
+  { label: 'Safe Shield',   id: 'shield' },
+  { label: 'How it starts', id: 'how' },
+  { label: 'Contact',       id: 'contact' },
+];
+
+const CONTACT_EMAIL = 'stacy.getinvolved@gmail.com';
+
+const TOPICS = [
+  { value: 'partnership', label: 'A partnership conversation' },
+  { value: 'program',     label: 'Questions about the program' },
+  { value: 'draft',       label: 'Feedback on this draft' },
 ];
 
 function Nav({ activeId, mobileOpen, setMobileOpen, scrolled }) {
   return (
     <header className={'nav' + (scrolled ? ' scrolled' : '')}>
       <div className="container nav-row">
-        <a href="#home" className="brand" aria-label="SeniorSafe home">
+        <a href="#home" className="brand" aria-label="Senior Safe home">
           <BrandLogo size={36} />
-          <span>SeniorSafe</span>
+          <span>Senior Safe</span>
         </a>
 
         <nav className="nav-links" aria-label="Primary">
@@ -29,8 +37,7 @@ function Nav({ activeId, mobileOpen, setMobileOpen, scrolled }) {
         </nav>
 
         <div className="nav-cta">
-          <a href="#contact" className="btn btn-secondary">Sign in</a>
-          <a href="#pricing" className="btn btn-primary">Get started</a>
+          <a href="#contact" className="btn btn-primary">Talk with us</a>
           <button
             className={'nav-burger' + (mobileOpen ? ' open' : '')}
             aria-label="Toggle menu"
@@ -51,8 +58,7 @@ function Nav({ activeId, mobileOpen, setMobileOpen, scrolled }) {
           </a>
         ))}
         <div className="mobile-cta">
-          <a href="#contact" className="btn btn-secondary" onClick={() => setMobileOpen(false)}>Sign in</a>
-          <a href="#pricing" className="btn btn-primary"   onClick={() => setMobileOpen(false)}>Get started</a>
+          <a href="#contact" className="btn btn-primary" onClick={() => setMobileOpen(false)}>Talk with us</a>
         </div>
       </div>
     </header>
@@ -65,93 +71,52 @@ function Hero() {
       <div className="hero-bg" aria-hidden="true"></div>
       <div className="container hero-grid">
         <div>
-          <span className="eyebrow"><span className="eyebrow-dot"></span> 24/7 monitoring · trusted by 12,000+ families</span>
+          <span className="eyebrow"><span className="eyebrow-dot"></span> For senior living communities</span>
           <h1>
-            Empowering Seniors with<br/>
-            Safety & <span className="accent">Peace of Mind</span>
+            Help residents face scams<br/>
+            <span className="accent">with a shared plan.</span>
           </h1>
           <p className="hero-sub">
-            A gentle, always-on companion that watches over the people you love.
-            One-tap help, daily check-ins, and instant alerts to family — all
-            from a single, easy-to-use device.
+            Senior Safe helps communities reduce how often residents are exposed
+            to scams — through education, on-site support, and shared protocols.
+            It is awareness and prevention, not a promise that fraud will not happen.
           </p>
           <div className="hero-cta">
-            <a href="#pricing" className="btn btn-primary btn-lg">
-              Start free 30-day trial
+            <a href="#contact" className="btn btn-primary btn-lg">
+              Talk with us
               <IconArrowRight size={18} stroke={2.2} />
             </a>
-            <a href="#how" className="btn btn-secondary btn-lg">See how it works</a>
-          </div>
-          <div className="hero-trust">
-            <div className="avatars" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-            <p>
-              <strong>4.9 / 5</strong> · from 2,400+ reviews across families and caregivers
-            </p>
+            <a href="#how" className="btn btn-secondary btn-lg">How a partnership starts</a>
           </div>
         </div>
 
-        <div style={{ position: 'relative' }}>
-          <div className="hero-device" role="img" aria-label="Preview of the SeniorSafe app">
-            <div className="hero-device-screen">
-              <div className="hero-device-headline">
-                Good morning, Eleanor
-                <span className="pill">All good</span>
+        <div className="hero-panel" aria-label="What the program starts with">
+          <h2>What comes first</h2>
+          <div className="hero-device-card">
+            <div className="hero-device-row">
+              <div className="icon"><IconUsers size={22} /></div>
+              <div className="meta">
+                <b>People, before any app</b>
+                <span>Introductions, named roles, and on-site support</span>
               </div>
-
-              <div className="hero-device-card">
-                <div className="hero-device-row ok">
-                  <div className="icon"><IconHeart size={22} /></div>
-                  <div className="meta">
-                    <b>Daily check-in complete</b>
-                    <span>Today at 7:45 AM</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="hero-device-card">
-                <div className="hero-device-row">
-                  <div className="icon"><IconPill size={22} /></div>
-                  <div className="meta">
-                    <b>Lisinopril · 10 mg</b>
-                    <span>Next reminder · 12:00 PM</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="hero-device-card">
-                <div className="hero-device-row">
-                  <div className="icon"><IconUsers size={22} /></div>
-                  <div className="meta">
-                    <b>Sarah is on her way</b>
-                    <span>ETA · 18 minutes</span>
-                  </div>
-                </div>
-              </div>
-
-              <button className="btn btn-primary" style={{
-                marginTop: 'auto', height: 56, fontSize: 18, borderRadius: 18
-              }}>
-                <IconPhone size={20} stroke={2.2} />
-                Call for help
-              </button>
             </div>
           </div>
-
-          <div className="hero-floater hero-floater-1">
-            <div className="icon-circle"><IconBell size={16} stroke={2.4} /></div>
-            <div>
-              <div style={{ fontSize: 11, color: 'var(--ink-500)', fontWeight: 500 }}>Alert sent</div>
-              <div>Family notified</div>
+          <div className="hero-device-card">
+            <div className="hero-device-row">
+              <div className="icon"><IconAlert size={22} /></div>
+              <div className="meta">
+                <b>A shared way to respond</b>
+                <span>What staff and residents do when something looks wrong</span>
+              </div>
             </div>
           </div>
-
-          <div className="hero-floater hero-floater-2">
-            <div className="icon-circle"><IconCheck size={16} stroke={3} /></div>
-            <div>
-              <div style={{ fontSize: 11, color: 'var(--ink-500)', fontWeight: 500 }}>Heart rate</div>
-              <div>72 bpm · normal</div>
+          <div className="hero-device-card">
+            <div className="hero-device-row">
+              <div className="icon"><IconPhone size={22} /></div>
+              <div className="meta">
+                <b>Phone tools only later</b>
+                <span>A limited help for calls and texts — not a guarantee</span>
+              </div>
             </div>
           </div>
         </div>
@@ -160,77 +125,149 @@ function Hero() {
   );
 }
 
-function LogoBar() {
-  return (
-    <div className="logo-bar">
-      <div className="container logo-bar-inner">
-        <p>As featured in</p>
-        <div className="logo-row">
-          <span>AARP</span>
-          <span>Forbes Health</span>
-          <span>NPR</span>
-          <span>USA Today</span>
-          <span>Wired</span>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const FEATURES = [
+const PROBLEMS = [
   {
-    icon: <IconAlert size={28} />,
-    title: 'Emergency Alerts',
-    body: 'A single press connects to a live responder in under 15 seconds, day or night — no phone needed.',
+    icon: <IconPhone size={28} />,
+    title: 'Calls and texts',
+    body: 'Many scams still arrive as a phone call or a message from someone the resident does not know.',
   },
   {
-    icon: <IconPill size={28} />,
-    title: 'Medication Reminders',
-    body: 'Gentle voice and on-screen prompts for every dose, with caregiver confirmations when missed.',
+    icon: <IconMail size={28} />,
+    title: 'Email and social',
+    body: 'The same pressure shows up in inboxes and social feeds. Tactics change faster than a one-time talk can cover.',
   },
   {
-    icon: <IconMap size={28} />,
-    title: 'Location Tracking',
-    body: 'Opt-in safe-zones let family know they’re home, on a walk, or need a check-in — without surveillance.',
-  },
-  {
-    icon: <IconFall size={28} />,
-    title: 'Fall Detection',
-    body: 'AI-assisted motion sensors call for help if a fall is detected, even when help can’t be called for.',
-  },
-  {
-    icon: <IconChat size={28} />,
-    title: 'Family Updates',
-    body: 'A daily digest for loved ones — activity, mood check-ins, missed reminders — sent however they prefer.',
-  },
-  {
-    icon: <IconLock size={28} />,
-    title: 'Private by Design',
-    body: 'No cameras, no microphones in private spaces. You decide what’s shared and with whom.',
+    icon: <IconHome size={28} />,
+    title: 'No shared response',
+    body: 'Communities are often set up for physical safety, and still lack a common way to notice fraud and act while it is happening.',
   },
 ];
 
-function Features() {
+function Problem() {
   return (
-    <section id="features" className="features">
+    <section id="problem" className="features">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">Features</span>
-          <h2>Everything your family needs, nothing they don’t.</h2>
-          <p>Designed with geriatric care specialists and tested with 200+ households. Each feature can be turned on or off by the senior themselves.</p>
+          <span className="eyebrow">The need</span>
+          <h2>The risk is already on the phone.</h2>
+          <p>
+            Seniors are targeted through calls, texts, email, and social media.
+            Family is not always there to catch it. Senior Safe exists so a
+            community has a structured way to talk about fraud and respond together.
+          </p>
         </div>
-
         <div className="feature-grid">
-          {FEATURES.map((f, i) => (
+          {PROBLEMS.map((item, i) => (
             <div key={i} className="feature-card reveal">
-              <div className="feature-icon">{f.icon}</div>
-              <h3>{f.title}</h3>
-              <p>{f.body}</p>
-              <a href="#contact" className="feature-link">
-                Learn more <IconArrowRight size={16} stroke={2.2} />
-              </a>
+              <div className="feature-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const PROGRAM = [
+  {
+    icon: <IconUsers size={28} />,
+    title: 'Introductions',
+    body: 'Staff, residents, and families learn what Senior Safe is, and how they will come to recognize it in the community.',
+  },
+  {
+    icon: <IconCheck size={28} />,
+    title: 'Named roles',
+    body: 'A community manager is the main contact. Resident liaisons help on the ground, so the program is not a poster on a wall.',
+  },
+  {
+    icon: <IconAlert size={28} />,
+    title: 'A way to respond',
+    body: 'Review help lines and what to do when fraud is suspected, including how to stop an event that is already in progress.',
+  },
+  {
+    icon: <IconChat size={28} />,
+    title: 'A place to talk',
+    body: 'Regular sharing so fear, isolation, and shame are easier to bring into the open. Connection is part of the protection.',
+  },
+  {
+    icon: <IconLock size={28} />,
+    title: 'Baseline protocols',
+    body: 'Practical habits for financial accounts and trusted companions — written down, practiced, and available to staff and residents.',
+  },
+  {
+    icon: <IconCalendar size={28} />,
+    title: 'Ongoing, not one visit',
+    body: 'The first months build awareness and comfort. The point is a habit the community can keep, not a single presentation.',
+  },
+];
+
+function Program() {
+  return (
+    <section id="program" className="features" style={{ background: 'var(--bg-mint)' }}>
+      <div className="container">
+        <div className="section-head">
+          <span className="eyebrow">The program</span>
+          <h2>What a community gets.</h2>
+          <p>
+            The opening months are people and process. No app is required to begin,
+            and none is handed out on day one.
+          </p>
+        </div>
+        <div className="feature-grid">
+          {PROGRAM.map((item, i) => (
+            <div key={i} className="feature-card reveal">
+              <div className="feature-icon">{item.icon}</div>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Shield() {
+  return (
+    <section id="shield" className="features">
+      <div className="container">
+        <div className="section-head">
+          <span className="eyebrow">Later, and limited</span>
+          <h2>Safe Shield is still being built.</h2>
+          <p>
+            Safe Shield is a phone layer for residents. It is not available yet.
+            The first version is meant to start with unwanted calls and texts from
+            numbers outside a resident’s contacts. Email, social, and search come
+            later only if they prove workable.
+          </p>
+        </div>
+
+        <div className="feature-grid two">
+          <div className="feature-card reveal">
+            <div className="feature-icon"><IconPhone size={28} /></div>
+            <h3>Calls</h3>
+            <p>
+              Numbers that are not in the resident’s contacts can be sent to
+              voicemail instead of ringing. We would not listen to the call.
+            </p>
+          </div>
+          <div className="feature-card reveal">
+            <div className="feature-icon"><IconChat size={28} /></div>
+            <h3>Texts</h3>
+            <p>
+              Messages from numbers outside contacts can be moved out of the main
+              inbox. We would not store what those texts said.
+            </p>
+          </div>
+        </div>
+
+        <div className="callout">
+          These tools can lower exposure. They do not watch every message, and
+          they do not guarantee a resident will not be scammed. Someone can still
+          be defrauded after joining. We would rather say that now than discover
+          it later as a broken promise. The work is to keep getting better.
         </div>
       </div>
     </section>
@@ -240,18 +277,23 @@ function Features() {
 const STEPS = [
   {
     n: 1,
-    title: 'Set up in 10 minutes',
-    body: 'We ship a pre-configured device. Plug it in, set the volume — that’s it. No app required for the senior.',
+    title: 'Agree to explore it',
+    body: 'Ownership groups and community leaders talk with us directly. Pricing and contract length are not listed on this page.',
   },
   {
     n: 2,
-    title: 'Invite family & caregivers',
-    body: 'Loved ones get a simple app to check in, view alerts, and chime in by voice anytime.',
+    title: 'First month, no app',
+    body: 'Introductions, roles, and how staff, residents, and families will recognize the program. Technology stays off the table.',
   },
   {
     n: 3,
-    title: 'Peace of mind, every day',
-    body: 'Routines, reminders, and emergency response keep working quietly in the background, 24/7.',
+    title: 'Protocols and habits',
+    body: 'How to respond when something looks wrong, why staying connected matters, and a regular place for residents to talk.',
+  },
+  {
+    n: 4,
+    title: 'A preview, then a choice',
+    body: 'Safe Shield is shown before anyone is asked to use it. Phone tools come only after that, and only for residents who want them.',
   },
 ];
 
@@ -260,11 +302,13 @@ function How() {
     <section id="how" className="how">
       <div className="container">
         <div className="section-head">
-          <span className="eyebrow">How it works</span>
-          <h2>Get protected this week.</h2>
-          <p>No installer, no contracts, no learning curve. Most families are up and running the day the device arrives.</p>
+          <span className="eyebrow">Partnership</span>
+          <h2>How a partnership starts.</h2>
+          <p>
+            Awareness comes first. Phone tools are optional, and they come last.
+          </p>
         </div>
-        <div className="steps">
+        <div className="steps steps-4">
           {STEPS.map(s => (
             <div key={s.n} className="step reveal">
               <div className="step-num">{s.n}</div>
@@ -278,257 +322,8 @@ function How() {
   );
 }
 
-const PLANS = [
-  {
-    name: 'Essentials',
-    monthly: 29,
-    yearly:  24,
-    desc:    'For independent seniors who want a safety net.',
-    features: [
-      '24/7 emergency response',
-      'Medication reminders',
-      'Daily check-in calls',
-      '1 family caregiver account',
-      'Device included',
-    ],
-    cta: 'Choose Essentials',
-    featured: false,
-  },
-  {
-    name: 'Family',
-    monthly: 49,
-    yearly:  39,
-    desc:    'Our most popular plan — covers everything most families need.',
-    features: [
-      'Everything in Essentials',
-      'Fall detection',
-      'Location & safe-zones',
-      'Up to 5 caregiver accounts',
-      'Weekly wellness summary',
-      'Priority response',
-    ],
-    cta: 'Choose Family',
-    featured: true,
-  },
-  {
-    name: 'Care+',
-    monthly: 79,
-    yearly:  64,
-    desc:    'For seniors with ongoing health needs and active caregivers.',
-    features: [
-      'Everything in Family',
-      'Nurse-led monthly review',
-      'Care plan coordination',
-      'Unlimited caregivers',
-      'Integrates with EHR / pharmacy',
-      'Dedicated account manager',
-    ],
-    cta: 'Choose Care+',
-    featured: false,
-  },
-];
-
-function Pricing({ billing, setBilling }) {
-  return (
-    <section id="pricing" className="pricing">
-      <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">Pricing</span>
-          <h2>Simple plans. No long-term contracts.</h2>
-          <p>30-day money-back guarantee. Cancel anytime — we’ll even send the return label.</p>
-          <div className="pricing-toggle" role="tablist">
-            <button
-              className={billing === 'monthly' ? 'active' : ''}
-              onClick={() => setBilling('monthly')}
-              role="tab" aria-selected={billing === 'monthly'}>
-              Monthly
-            </button>
-            <button
-              className={billing === 'yearly' ? 'active' : ''}
-              onClick={() => setBilling('yearly')}
-              role="tab" aria-selected={billing === 'yearly'}>
-              Yearly <span className="save">Save 20%</span>
-            </button>
-          </div>
-        </div>
-
-        <div className="price-grid">
-          {PLANS.map(p => {
-            const price = billing === 'yearly' ? p.yearly : p.monthly;
-            return (
-              <div key={p.name} className={'price-card' + (p.featured ? ' featured' : '')}>
-                <div className="price-name">{p.name}</div>
-                <div className="price-tag">
-                  <span className="num">${price}</span>
-                  <span className="unit">/ month{billing === 'yearly' ? ', billed yearly' : ''}</span>
-                </div>
-                <p className="price-desc">{p.desc}</p>
-                <ul>
-                  {p.features.map(f => (
-                    <li key={f}>
-                      <IconCheck size={18} stroke={2.4} />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <a href="#contact"
-                   className={'btn ' + (p.featured ? 'btn-primary' : 'btn-secondary')}>
-                  {p.cta}
-                </a>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const TESTIMONIALS = [
-  {
-    quote: 'I sleep through the night again. If Mom needs anything, SeniorSafe lets me know — before she even asks.',
-    name: 'Rachel M.',
-    role: 'Daughter & caregiver',
-    initials: 'RM',
-  },
-  {
-    quote: 'I’m 78 and I don’t feel like I’m being watched. I feel like someone’s on my team. Big difference.',
-    name: 'Walter B.',
-    role: 'SeniorSafe member',
-    initials: 'WB',
-  },
-  {
-    quote: 'The fall detection saved Dad’s life in March. The response team had paramedics there in 9 minutes.',
-    name: 'David K.',
-    role: 'Family caregiver',
-    initials: 'DK',
-  },
-];
-
-function Testimonials() {
-  return (
-    <section id="stories" className="testimonials">
-      <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">Family stories</span>
-          <h2>The most important reviews come from family.</h2>
-        </div>
-        <div className="testimonial-grid">
-          {TESTIMONIALS.map((t, i) => (
-            <figure key={i} className="testimonial reveal">
-              <div className="stars" aria-label="5 out of 5 stars">
-                {[1,2,3,4,5].map(n => <IconStar key={n} size={18} />)}
-              </div>
-              <blockquote>“{t.quote}”</blockquote>
-              <figcaption className="testimonial-meta">
-                <div className="testimonial-avatar">{t.initials}</div>
-                <div>
-                  <b>{t.name}</b>
-                  <span>{t.role}</span>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function About() {
-  return (
-    <section id="about" className="about">
-      <div className="container about-grid">
-        <div>
-          <span className="eyebrow">About us</span>
-          <h2 style={{ marginTop: 16 }}>Built by people who’ve been the caregiver too.</h2>
-          <p>
-            SeniorSafe started in 2019 when our founder’s grandmother fell at home
-            and couldn’t reach her phone. We set out to build the kind of help she
-            actually wanted: simple, dignified, and always there.
-          </p>
-          <p>
-            Today, we’re a team of 40 — engineers, nurses, designers, and
-            family caregivers — based in Portland, Oregon.
-          </p>
-          <div className="about-stats">
-            <div className="about-stat">
-              <div className="num">12K+</div>
-              <div className="lbl">Households protected</div>
-            </div>
-            <div className="about-stat">
-              <div className="num">9 min</div>
-              <div className="lbl">Avg. emergency response</div>
-            </div>
-            <div className="about-stat">
-              <div className="num">4.9★</div>
-              <div className="lbl">Customer rating</div>
-            </div>
-          </div>
-        </div>
-
-        <div className="photo-placeholder">
-          [ photo placeholder ]<br/>
-          founder + grandmother, kitchen, warm light, 4:5
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const FAQS = [
-  {
-    q: 'Does my parent need to use a smartphone?',
-    a: 'No. The SeniorSafe device works on its own — no phone, app, or Wi-Fi setup required by the senior. Family members use a smartphone app to check in.',
-  },
-  {
-    q: 'What happens during an emergency?',
-    a: 'Pressing the help button — or an auto-detected fall — connects to a US-based response specialist in under 15 seconds. They stay on the line until help arrives and notify your designated family contacts.',
-  },
-  {
-    q: 'Is there a camera in the device?',
-    a: 'No. The device has no cameras and never records audio in private spaces. We believe safety and dignity are non-negotiable.',
-  },
-  {
-    q: 'What if I want to cancel?',
-    a: 'Cancel anytime in the app or with a phone call. Within the first 30 days you’ll get a full refund, including the device.',
-  },
-  {
-    q: 'Is the device covered by Medicare or insurance?',
-    a: 'Many long-term care plans, Medicare Advantage plans, and HSAs reimburse SeniorSafe. Our care team can help you check eligibility for free.',
-  },
-];
-
-function FAQ() {
-  const [open, setOpen] = React.useState(0);
-  return (
-    <section id="faq" className="faq">
-      <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">Questions</span>
-          <h2>Things families ask us.</h2>
-        </div>
-        <div className="faq-list">
-          {FAQS.map((item, i) => (
-            <div key={i} className={'faq-item' + (open === i ? ' open' : '')}>
-              <button className="faq-q" onClick={() => setOpen(open === i ? -1 : i)}
-                      aria-expanded={open === i}>
-                <span>{item.q}</span>
-                <span className="faq-q-icon"><IconPlus size={16} stroke={2.4} /></span>
-              </button>
-              <div className="faq-a">
-                <div className="faq-a-inner">{item.a}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Contact() {
-  const [form, setForm] = React.useState({ name: '', email: '', phone: '', topic: 'general', message: '' });
+  const [form, setForm] = React.useState({ name: '', email: '', phone: '', topic: 'partnership', message: '' });
   const [errors, setErrors] = React.useState({});
   const [sent, setSent] = React.useState(false);
 
@@ -541,11 +336,22 @@ function Contact() {
     e.preventDefault();
     const err = {};
     if (!form.name.trim())  err.name  = 'Please tell us your name.';
-    if (!form.email.trim()) err.email = 'We need an email to reach you.';
+    if (!form.email.trim()) err.email = 'We need an email so Stacy can reply.';
     else if (!/^\S+@\S+\.\S+$/.test(form.email)) err.email = 'That email looks off — mind double-checking?';
-    if (!form.message.trim() || form.message.trim().length < 10) err.message = 'A few more words would help us help you.';
+    if (!form.message.trim() || form.message.trim().length < 10) err.message = 'A few more words would help.';
 
     if (Object.keys(err).length) { setErrors(err); return; }
+
+    const topicLabel = (TOPICS.find(t => t.value === form.topic) || TOPICS[0]).label;
+    const subject = encodeURIComponent('Senior Safe — ' + topicLabel);
+    const body = encodeURIComponent(
+      'Name: ' + form.name.trim() + '\n' +
+      'Email: ' + form.email.trim() + '\n' +
+      'Phone: ' + (form.phone.trim() || '(not given)') + '\n' +
+      'Topic: ' + topicLabel + '\n\n' +
+      form.message.trim()
+    );
+    window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
     setSent(true);
   };
 
@@ -557,25 +363,21 @@ function Contact() {
             background: 'rgba(255,255,255,.08)',
             color: 'var(--teal-200)',
             borderColor: 'rgba(255,255,255,.12)'
-          }}>Contact us</span>
-          <h2 style={{ marginTop: 16 }}>Talk to a real person, today.</h2>
+          }}>Contact</span>
+          <h2 style={{ marginTop: 16 }}>Talk with us about a community.</h2>
           <p className="contact-lead">
-            Have questions about a parent or yourself? Our care team takes the
-            time to listen. No scripts, no pressure.
+            This page is a draft for review. The form opens an email to Stacy.
+            It does not go to a call center, and it does not send on its own —
+            you still press send in your mail app.
           </p>
 
           <div className="contact-info">
             <div className="contact-info-row">
-              <div className="ic"><IconPhone size={18} /></div>
-              <div><b>1-800-SAFE-MOM</b><span>Mon–Sat · 6am–9pm PT</span></div>
-            </div>
-            <div className="contact-info-row">
               <div className="ic"><IconMail size={18} /></div>
-              <div><b>hello@seniorsafe.example</b><span>We answer within an hour, every hour.</span></div>
-            </div>
-            <div className="contact-info-row">
-              <div className="ic"><IconPin size={18} /></div>
-              <div><b>Portland, Oregon</b><span>320 NW Davis St · visit by appointment</span></div>
+              <div>
+                <b><a href={'mailto:' + CONTACT_EMAIL}>{CONTACT_EMAIL}</a></b>
+                <span>Partnership and program questions</span>
+              </div>
             </div>
           </div>
         </div>
@@ -585,7 +387,10 @@ function Contact() {
             <div className="form-success">
               <div className="check"><IconCheck size={28} stroke={3} /></div>
               <h3>Thanks, {form.name.split(' ')[0]}.</h3>
-              <p>A care specialist will reach out within the hour. Check your email — we just sent a confirmation.</p>
+              <p>
+                Your email app should have opened a draft to Stacy. Send it from
+                there. If nothing opened, write directly to {CONTACT_EMAIL}.
+              </p>
             </div>
           ) : (
             <React.Fragment>
@@ -595,7 +400,7 @@ function Contact() {
                   <input id="name" type="text"
                          value={form.name}
                          onChange={e => update('name', e.target.value)}
-                         placeholder="Jane Doe" />
+                         placeholder="Jordan Lee" />
                   <div className="err-msg">{errors.name}</div>
                 </div>
                 <div className={'field' + (errors.email ? ' err' : '')}>
@@ -603,7 +408,7 @@ function Contact() {
                   <input id="email" type="email"
                          value={form.email}
                          onChange={e => update('email', e.target.value)}
-                         placeholder="jane@email.com" />
+                         placeholder="you@community.org" />
                   <div className="err-msg">{errors.email}</div>
                 </div>
               </div>
@@ -621,10 +426,9 @@ function Contact() {
                   <select id="topic"
                           value={form.topic}
                           onChange={e => update('topic', e.target.value)}>
-                    <option value="general">General questions</option>
-                    <option value="parent">A parent or family member</option>
-                    <option value="myself">Myself</option>
-                    <option value="medicare">Medicare / insurance coverage</option>
+                    {TOPICS.map(t => (
+                      <option key={t.value} value={t.value}>{t.label}</option>
+                    ))}
                   </select>
                   <div className="err-msg"></div>
                 </div>
@@ -634,11 +438,11 @@ function Contact() {
                 <textarea id="msg"
                           value={form.message}
                           onChange={e => update('message', e.target.value)}
-                          placeholder="Tell us a little about your situation — we’ll take it from there." />
+                          placeholder="Which community, and what would be useful to cover?" />
                 <div className="err-msg">{errors.message}</div>
               </div>
               <button type="submit" className="btn btn-primary btn-lg">
-                Send message
+                Open email to Stacy
                 <IconArrowRight size={18} stroke={2.2} />
               </button>
             </React.Fragment>
@@ -655,22 +459,24 @@ function Footer() {
       <div className="container foot-row">
         <a href="#home" className="brand" style={{ color: '#fff', fontSize: 18 }}>
           <BrandLogo size={28} />
-          SeniorSafe
+          Senior Safe
         </a>
         <div className="foot-links">
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
+          <a href="#program">Program</a>
+          <a href="#shield">Safe Shield</a>
+          <a href="#how">How it starts</a>
           <a href="#contact">Contact</a>
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
         </div>
-        <div>© 2026 SeniorSafe, Inc.</div>
+        <div>
+          <div>© 2026 Senior Safe</div>
+          <div className="draft-note">Draft for review. Pricing is not published here.</div>
+        </div>
       </div>
     </footer>
   );
 }
 
 Object.assign(window, {
-  Nav, Hero, LogoBar, Features, How, Pricing, Testimonials, About, FAQ, Contact, Footer,
+  Nav, Hero, Problem, Program, Shield, How, Contact, Footer,
   NAV_ITEMS,
 });

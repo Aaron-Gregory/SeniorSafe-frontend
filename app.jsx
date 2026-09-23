@@ -19,7 +19,6 @@ function App() {
   const [activeId, setActiveId] = React.useState('home');
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [scrolled, setScrolled] = React.useState(false);
-  const [billing, setBilling] = React.useState('yearly');
 
   // Apply accent tweak to CSS vars
   React.useEffect(() => {
@@ -86,13 +85,10 @@ function App() {
       <Nav activeId={activeId} mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} scrolled={scrolled} />
       <main>
         <Hero />
-        <LogoBar />
-        <Features />
+        <Problem />
+        <Program />
+        <Shield />
         <How />
-        <Pricing billing={billing} setBilling={setBilling} />
-        <Testimonials />
-        <About />
-        <FAQ />
         <Contact />
       </main>
       <Footer />
