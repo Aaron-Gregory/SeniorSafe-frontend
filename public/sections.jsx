@@ -1,21 +1,12 @@
-// Section components for the Senior Safe community-program page
+// Section components for the Senior Safe need page
 
 const NAV_ITEMS = [
-  { label: 'Home',          id: 'home' },
-  { label: 'The need',      id: 'problem' },
-  { label: 'Program',       id: 'program' },
-  { label: 'Safe Shield',   id: 'shield' },
-  { label: 'How it starts', id: 'how' },
-  { label: 'Contact',       id: 'contact' },
+  { label: 'Home',     id: 'home' },
+  { label: 'The need', id: 'problem' },
+  { label: 'Contact',  id: 'contact' },
 ];
 
-const CONTACT_EMAIL = 'stacy.getinvolved@gmail.com';
-
-const TOPICS = [
-  { value: 'partnership', label: 'A partnership conversation' },
-  { value: 'program',     label: 'Questions about the program' },
-  { value: 'draft',       label: 'Feedback on this draft' },
-];
+const CONTACT_EMAIL = 'hello@seniorsafeusa.org';
 
 function Nav({ activeId, mobileOpen, setMobileOpen, scrolled }) {
   return (
@@ -37,7 +28,6 @@ function Nav({ activeId, mobileOpen, setMobileOpen, scrolled }) {
         </nav>
 
         <div className="nav-cta">
-          <a href="#contact" className="btn btn-primary">Talk with us</a>
           <button
             className={'nav-burger' + (mobileOpen ? ' open' : '')}
             aria-label="Toggle menu"
@@ -57,9 +47,6 @@ function Nav({ activeId, mobileOpen, setMobileOpen, scrolled }) {
             {item.label}
           </a>
         ))}
-        <div className="mobile-cta">
-          <a href="#contact" className="btn btn-primary" onClick={() => setMobileOpen(false)}>Talk with us</a>
-        </div>
       </div>
     </header>
   );
@@ -71,53 +58,36 @@ function Hero() {
       <div className="hero-bg" aria-hidden="true"></div>
       <div className="container hero-grid">
         <div>
-          <span className="eyebrow"><span className="eyebrow-dot"></span> For senior living communities</span>
+          <span className="eyebrow"><span className="eyebrow-dot"></span> Senior fraud protection</span>
           <h1>
-            Help residents face scams<br/>
-            <span className="accent">with a shared plan.</span>
+            The need to keep seniors<br/>
+            <span className="accent">safe from fraud is growing.</span>
           </h1>
           <p className="hero-sub">
-            Senior Safe helps communities reduce how often residents are exposed
-            to scams — through education, on-site support, and shared protocols.
-            It is awareness and prevention, not a promise that fraud will not happen.
+            Fraud is reaching a larger share of the money seniors hold.
+            This page describes that need. It does not promise that fraud
+            will be stopped.
           </p>
           <div className="hero-cta">
-            <a href="#contact" className="btn btn-primary btn-lg">
-              Talk with us
-              <IconArrowRight size={18} stroke={2.2} />
-            </a>
-            <a href="#how" className="btn btn-secondary btn-lg">How a partnership starts</a>
+            <a href="#problem" className="btn btn-secondary btn-lg">The need</a>
           </div>
         </div>
 
-        <div className="hero-panel" aria-label="What the program starts with">
-          <h2>What comes first</h2>
-          <div className="hero-device-card">
-            <div className="hero-device-row">
-              <div className="icon"><IconUsers size={22} /></div>
-              <div className="meta">
-                <b>People, before any app</b>
-                <span>Introductions, named roles, and on-site support</span>
-              </div>
-            </div>
+        <div className="hero-panel" aria-label="Share of seniors' deposits budgeted as impacted">
+          <h2>A larger share of deposits</h2>
+          <p className="stat-lead">
+            The U.S. banking system budgeted for 2.5% of seniors&rsquo; deposits
+            to be impacted in 2020. That figure has grown to 15% this year.
+          </p>
+          <div className="hero-device-card stat-card">
+            <div className="stat-figure">2.5%</div>
+            <div className="stat-label">2020</div>
+            <p>Share of seniors&rsquo; deposits the U.S. banking system budgeted as impacted.</p>
           </div>
-          <div className="hero-device-card">
-            <div className="hero-device-row">
-              <div className="icon"><IconAlert size={22} /></div>
-              <div className="meta">
-                <b>A shared way to respond</b>
-                <span>What staff and residents do when something looks wrong</span>
-              </div>
-            </div>
-          </div>
-          <div className="hero-device-card">
-            <div className="hero-device-row">
-              <div className="icon"><IconPhone size={22} /></div>
-              <div className="meta">
-                <b>Phone tools only later</b>
-                <span>A limited help for calls and texts — not a guarantee</span>
-              </div>
-            </div>
+          <div className="hero-device-card stat-card">
+            <div className="stat-figure">15%</div>
+            <div className="stat-label">This year</div>
+            <p>That budgeted share has grown to 15%.</p>
           </div>
         </div>
       </div>
@@ -134,12 +104,12 @@ const PROBLEMS = [
   {
     icon: <IconMail size={28} />,
     title: 'Email and social',
-    body: 'The same pressure shows up in inboxes and social feeds. Tactics change faster than a one-time talk can cover.',
+    body: 'The same pressure shows up in inboxes and social feeds. The stories and the tactics keep changing.',
   },
   {
     icon: <IconHome size={28} />,
-    title: 'No shared response',
-    body: 'Communities are often set up for physical safety, and still lack a common way to notice fraud and act while it is happening.',
+    title: 'Often alone with it',
+    body: 'Communities are built for physical safety. A fraudulent call or message can still reach a resident when no one else is there to question it.',
   },
 ];
 
@@ -149,11 +119,12 @@ function Problem() {
       <div className="container">
         <div className="section-head">
           <span className="eyebrow">The need</span>
-          <h2>The risk is already on the phone.</h2>
+          <h2>The risk is already reaching seniors.</h2>
           <p>
             Seniors are targeted through calls, texts, email, and social media.
-            Family is not always there to catch it. Senior Safe exists so a
-            community has a structured way to talk about fraud and respond together.
+            The tactics keep changing, and family is not always there when a
+            message arrives. The need for protection that helps keep seniors
+            safe is rising with that exposure.
           </p>
         </div>
         <div className="feature-grid">
@@ -170,160 +141,8 @@ function Problem() {
   );
 }
 
-const PROGRAM = [
-  {
-    icon: <IconUsers size={28} />,
-    title: 'Introductions',
-    body: 'Staff, residents, and families learn what Senior Safe is, and how they will come to recognize it in the community.',
-  },
-  {
-    icon: <IconCheck size={28} />,
-    title: 'Named roles',
-    body: 'A community manager is the main contact. Resident liaisons help on the ground, so the program is not a poster on a wall.',
-  },
-  {
-    icon: <IconAlert size={28} />,
-    title: 'A way to respond',
-    body: 'Review help lines and what to do when fraud is suspected, including how to stop an event that is already in progress.',
-  },
-  {
-    icon: <IconChat size={28} />,
-    title: 'A place to talk',
-    body: 'Regular sharing so fear, isolation, and shame are easier to bring into the open. Connection is part of the protection.',
-  },
-  {
-    icon: <IconLock size={28} />,
-    title: 'Baseline protocols',
-    body: 'Practical habits for financial accounts and trusted companions — written down, practiced, and available to staff and residents.',
-  },
-  {
-    icon: <IconCalendar size={28} />,
-    title: 'Ongoing, not one visit',
-    body: 'The first months build awareness and comfort. The point is a habit the community can keep, not a single presentation.',
-  },
-];
-
-function Program() {
-  return (
-    <section id="program" className="features" style={{ background: 'var(--bg-mint)' }}>
-      <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">The program</span>
-          <h2>What a community gets.</h2>
-          <p>
-            The opening months are people and process. No app is required to begin,
-            and none is handed out on day one.
-          </p>
-        </div>
-        <div className="feature-grid">
-          {PROGRAM.map((item, i) => (
-            <div key={i} className="feature-card reveal">
-              <div className="feature-icon">{item.icon}</div>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Shield() {
-  return (
-    <section id="shield" className="features">
-      <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">Later, and limited</span>
-          <h2>Safe Shield is still being built.</h2>
-          <p>
-            Safe Shield is a phone layer for residents. It is not available yet.
-            The first version is meant to start with unwanted calls and texts from
-            numbers outside a resident’s contacts. Email, social, and search come
-            later only if they prove workable.
-          </p>
-        </div>
-
-        <div className="feature-grid two">
-          <div className="feature-card reveal">
-            <div className="feature-icon"><IconPhone size={28} /></div>
-            <h3>Calls</h3>
-            <p>
-              Numbers that are not in the resident’s contacts can be sent to
-              voicemail instead of ringing. We would not listen to the call.
-            </p>
-          </div>
-          <div className="feature-card reveal">
-            <div className="feature-icon"><IconChat size={28} /></div>
-            <h3>Texts</h3>
-            <p>
-              Messages from numbers outside contacts can be moved out of the main
-              inbox. We would not store what those texts said.
-            </p>
-          </div>
-        </div>
-
-        <div className="callout">
-          These tools can lower exposure. They do not watch every message, and
-          they do not guarantee a resident will not be scammed. Someone can still
-          be defrauded after joining. We would rather say that now than discover
-          it later as a broken promise. The work is to keep getting better.
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const STEPS = [
-  {
-    n: 1,
-    title: 'Agree to explore it',
-    body: 'Ownership groups and community leaders talk with us directly. Pricing and contract length are not listed on this page.',
-  },
-  {
-    n: 2,
-    title: 'First month, no app',
-    body: 'Introductions, roles, and how staff, residents, and families will recognize the program. Technology stays off the table.',
-  },
-  {
-    n: 3,
-    title: 'Protocols and habits',
-    body: 'How to respond when something looks wrong, why staying connected matters, and a regular place for residents to talk.',
-  },
-  {
-    n: 4,
-    title: 'A preview, then a choice',
-    body: 'Safe Shield is shown before anyone is asked to use it. Phone tools come only after that, and only for residents who want them.',
-  },
-];
-
-function How() {
-  return (
-    <section id="how" className="how">
-      <div className="container">
-        <div className="section-head">
-          <span className="eyebrow">Partnership</span>
-          <h2>How a partnership starts.</h2>
-          <p>
-            Awareness comes first. Phone tools are optional, and they come last.
-          </p>
-        </div>
-        <div className="steps steps-4">
-          {STEPS.map(s => (
-            <div key={s.n} className="step reveal">
-              <div className="step-num">{s.n}</div>
-              <h3>{s.title}</h3>
-              <p>{s.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 function Contact() {
-  const [form, setForm] = React.useState({ name: '', email: '', phone: '', topic: 'partnership', message: '' });
+  const [form, setForm] = React.useState({ name: '', email: '', phone: '', message: '' });
   const [errors, setErrors] = React.useState({});
   const [sent, setSent] = React.useState(false);
 
@@ -336,19 +155,17 @@ function Contact() {
     e.preventDefault();
     const err = {};
     if (!form.name.trim())  err.name  = 'Please tell us your name.';
-    if (!form.email.trim()) err.email = 'We need an email so Stacy can reply.';
+    if (!form.email.trim()) err.email = 'We need an email so we can reply.';
     else if (!/^\S+@\S+\.\S+$/.test(form.email)) err.email = 'That email looks off — mind double-checking?';
     if (!form.message.trim() || form.message.trim().length < 10) err.message = 'A few more words would help.';
 
     if (Object.keys(err).length) { setErrors(err); return; }
 
-    const topicLabel = (TOPICS.find(t => t.value === form.topic) || TOPICS[0]).label;
-    const subject = encodeURIComponent('Senior Safe — ' + topicLabel);
+    const subject = encodeURIComponent('Senior Safe — a note');
     const body = encodeURIComponent(
       'Name: ' + form.name.trim() + '\n' +
       'Email: ' + form.email.trim() + '\n' +
-      'Phone: ' + (form.phone.trim() || '(not given)') + '\n' +
-      'Topic: ' + topicLabel + '\n\n' +
+      'Phone: ' + (form.phone.trim() || '(not given)') + '\n\n' +
       form.message.trim()
     );
     window.location.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + subject + '&body=' + body;
@@ -364,11 +181,10 @@ function Contact() {
             color: 'var(--teal-200)',
             borderColor: 'rgba(255,255,255,.12)'
           }}>Contact</span>
-          <h2 style={{ marginTop: 16 }}>Talk with us about a community.</h2>
+          <h2 style={{ marginTop: 16 }}>Send a note.</h2>
           <p className="contact-lead">
-            This page is a draft for review. The form opens an email to Stacy.
-            It does not go to a call center, and it does not send on its own —
-            you still press send in your mail app.
+            This page is a draft. The form opens an email.
+            Nothing is sent until you press send in your mail app.
           </p>
 
           <div className="contact-info">
@@ -376,7 +192,7 @@ function Contact() {
               <div className="ic"><IconMail size={18} /></div>
               <div>
                 <b><a href={'mailto:' + CONTACT_EMAIL}>{CONTACT_EMAIL}</a></b>
-                <span>Partnership and program questions</span>
+                <span>For a question or a note</span>
               </div>
             </div>
           </div>
@@ -388,7 +204,7 @@ function Contact() {
               <div className="check"><IconCheck size={28} stroke={3} /></div>
               <h3>Thanks, {form.name.split(' ')[0]}.</h3>
               <p>
-                Your email app should have opened a draft to Stacy. Send it from
+                Your email app should have opened a draft. Send it from
                 there. If nothing opened, write directly to {CONTACT_EMAIL}.
               </p>
             </div>
@@ -408,41 +224,28 @@ function Contact() {
                   <input id="email" type="email"
                          value={form.email}
                          onChange={e => update('email', e.target.value)}
-                         placeholder="you@community.org" />
+                         placeholder="you@email.com" />
                   <div className="err-msg">{errors.email}</div>
                 </div>
               </div>
-              <div className="row">
-                <div className="field">
-                  <label htmlFor="phone">Phone <span style={{opacity:.5}}>(optional)</span></label>
-                  <input id="phone" type="tel"
-                         value={form.phone}
-                         onChange={e => update('phone', e.target.value)}
-                         placeholder="(555) 555-0123" />
-                  <div className="err-msg"></div>
-                </div>
-                <div className="field">
-                  <label htmlFor="topic">I’d like to talk about</label>
-                  <select id="topic"
-                          value={form.topic}
-                          onChange={e => update('topic', e.target.value)}>
-                    {TOPICS.map(t => (
-                      <option key={t.value} value={t.value}>{t.label}</option>
-                    ))}
-                  </select>
-                  <div className="err-msg"></div>
-                </div>
+              <div className="field">
+                <label htmlFor="phone">Phone <span style={{opacity:.5}}>(optional)</span></label>
+                <input id="phone" type="tel"
+                       value={form.phone}
+                       onChange={e => update('phone', e.target.value)}
+                       placeholder="(555) 555-0123" />
+                <div className="err-msg"></div>
               </div>
               <div className={'field' + (errors.message ? ' err' : '')}>
-                <label htmlFor="msg">What’s on your mind?</label>
+                <label htmlFor="msg">Note</label>
                 <textarea id="msg"
                           value={form.message}
                           onChange={e => update('message', e.target.value)}
-                          placeholder="Which community, and what would be useful to cover?" />
+                          placeholder="A short note is enough." />
                 <div className="err-msg">{errors.message}</div>
               </div>
               <button type="submit" className="btn btn-primary btn-lg">
-                Open email to Stacy
+                Open email
                 <IconArrowRight size={18} stroke={2.2} />
               </button>
             </React.Fragment>
@@ -462,14 +265,12 @@ function Footer() {
           Senior Safe
         </a>
         <div className="foot-links">
-          <a href="#program">Program</a>
-          <a href="#shield">Safe Shield</a>
-          <a href="#how">How it starts</a>
+          <a href="#problem">The need</a>
           <a href="#contact">Contact</a>
         </div>
         <div>
           <div>© 2026 Senior Safe</div>
-          <div className="draft-note">Draft for review. Pricing is not published here.</div>
+          <div className="draft-note">Draft for review.</div>
         </div>
       </div>
     </footer>
@@ -477,6 +278,6 @@ function Footer() {
 }
 
 Object.assign(window, {
-  Nav, Hero, Problem, Program, Shield, How, Contact, Footer,
+  Nav, Hero, Problem, Contact, Footer,
   NAV_ITEMS,
 });

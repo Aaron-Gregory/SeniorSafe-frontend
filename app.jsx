@@ -86,9 +86,6 @@ function App() {
       <main>
         <Hero />
         <Problem />
-        <Program />
-        <Shield />
-        <How />
         <Contact />
       </main>
       <Footer />
